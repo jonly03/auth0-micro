@@ -7,6 +7,7 @@ const cors = require("cors");
 const server = express();
 server.use(auth(auth0_config));
 server.use(cors());
+server.set("trust proxy", true);
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
