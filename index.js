@@ -21,11 +21,16 @@ server.get("/myLogin", (req, res) => {
 });
 
 server.get("/", (req, res) => {
+  console.log(req.oidc.user);
   if (req.oidc.isAuthenticated()) {
     return res.json({ user: req.oidc.user });
   }
 
   res.redirect("/myLogin");
+});
+
+server.get("/callback", (req, res) => {
+  res.send("<p>test</p>");
 });
 
 // server.get("/", (req, res) => {
