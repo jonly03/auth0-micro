@@ -16,7 +16,7 @@ server.listen(PORT, () => {
 
 server.get("/myLogin", (req, res) => {
   res.redirect(
-    "https://dev-v8yhc0o7.us.auth0.com/authorize?response_type=token&client_id=tM4rxIGpbjNLFjuWxNcojBsOCy1hIQzP&redirect_uri=https://alan-auth.herokuapp.com/"
+    "https://dev-v8yhc0o7.us.auth0.com/authorize?response_type=token&client_id=tM4rxIGpbjNLFjuWxNcojBsOCy1hIQzP&redirect_uri=https://nellysugu.com"
   );
 });
 
