@@ -16,7 +16,7 @@ server.listen(PORT, () => {
 
 server.get("/myLogin", (req, res) => {
   res.redirect(
-    "https://dev-v8yhc0o7.us.auth0.com/authorize?response_type=token&client_id=tM4rxIGpbjNLFjuWxNcojBsOCy1hIQzP&redirect_uri=https://nellysugu.com"
+    "https://dev-v8yhc0o7.us.auth0.com/authorize?response_type=token&client_id=tM4rxIGpbjNLFjuWxNcojBsOCy1hIQzP&redirect_uri=https://alan-auth.herokuapp.com/callback"
   );
 });
 
@@ -31,6 +31,10 @@ server.get("/", (req, res) => {
 
 server.get("/callback", (req, res) => {
   res.send("<p>test</p>");
+});
+
+server.get("/loggedIn", (req, res) => {
+  return res.json({ isAuthenticated: req.oidc.isAuthenticated() });
 });
 
 // server.get("/", (req, res) => {
