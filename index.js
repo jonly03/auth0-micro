@@ -39,4 +39,6 @@ server.get("/signoff", (req, res) => {
   axios.get(
     `${process.env.AUTH0_ISSUER_BASE_URL}/v2/logout?client_id=${AUTH0_CLIENT_ID}&returnTo=https://www.nellysugu.com/auth_front/`
   );
+
+  res.json({ success: "logged out" });
 });
