@@ -41,7 +41,6 @@ server.get("/signoff", async (req, res) => {
       `${process.env.AUTH0_ISSUER_BASE_URL}/v2/logout?client_id=${process.env.AUTH0_CLIENT_ID}&returnTo=https://www.nellysugu.com/auth_front/`
     );
 
-    console.log(data);
     res.json({ success: "logged out" });
   } catch (err) {
     console.log(err);
