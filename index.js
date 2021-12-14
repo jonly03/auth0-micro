@@ -38,7 +38,7 @@ server.get("/userinfo", async (req, res) => {
 server.get("/signoff", async (req, res) => {
   try {
     const { data } = await axios.get(
-      `${process.env.AUTH0_ISSUER_BASE_URL}/v2/logout?client_id=${process.env.AUTH0_CLIENT_ID}`
+      `${process.env.AUTH0_ISSUER_BASE_URL}/v2/logout?client_id=${process.env.AUTH0_CLIENT_ID}&returnTo=https://www.nellysugu.com/auth_front/`
     );
 
     console.log(data);
