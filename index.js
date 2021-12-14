@@ -7,7 +7,7 @@ const cors = require("cors");
 const server = express();
 server.use(auth(auth0_config));
 server.use(cors());
-server.set("trust proxy", true);
+server.set("trust proxy", 1);
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
@@ -34,7 +34,14 @@ server.get("/callback", (req, res) => {
 });
 
 server.get("/loggedIn", (req, res) => {
-  return res.json({ isAuthenticated: req.oidc.isAuthenticated() });
+  if (req.oidc.isAuthenticated()) {
+    return res.json({
+      isAuthenticated: true,
+      user: req.oidc.user,
+    });
+  }
+
+  return res.json({ isAuthenticated: false });
 });
 
 // server.get("/", (req, res) => {
