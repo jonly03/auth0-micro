@@ -32,5 +32,5 @@ server.get("/userinfo", async (req, res) => {
     }
   );
 
-  res.json({ user });
+  res.json(user);
 });
